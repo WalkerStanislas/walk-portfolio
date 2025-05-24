@@ -1,0 +1,99 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Portfolio de Walker Stanislas Rocksane COMPAORE, Élève-Ingénieur en Intelligence Artificielle & Science des Données" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- Preconnect to Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+		
+		<!-- Preload critical resources -->
+		<link rel="preload" href="/assets/background-pattern.svg" as="image" />
+		
+		<!-- CSS Libraries -->
+		<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+		
+		<!-- ViewTransitions for page transitions -->
+		<ViewTransitions />
+	</head>
+	<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+		<ScrollProgress />
+		<Navbar />
+		<ThemeToggle />
+		
+		<main>
+			<slot />
+		</main>
+		
+		<Footer />
+		
+		<!-- JavaScript Libraries -->
+		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" is:inline></script>
+		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" is:inline></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" is:inline></script>
+		<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" is:inline></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" is:inline></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" is:inline></script>
+		
+		<script>
+			// Initialize AOS
+			document.addEventListener('DOMContentLoaded', () => {
+				AOS.init({
+					duration: 800,
+					easing: 'ease-in-out',
+					once: false,
+					mirror: true
+				});
+				
+				// Handle theme preference
+				const theme = localStorage.getItem('theme') || 'light';
+				document.documentElement.classList.toggle('dark', theme === 'dark');
+				
+				// Re-init AOS on page transition
+				document.addEventListener('astro:after-swap', () => {
+					AOS.refresh();
+					initVanillaTilt();
+				});
+				
+				// Initialize VanillaTilt
+				initVanillaTilt();
+			});
+			
+			function initVanillaTilt() {
+				const tiltElements = document.querySelectorAll('.tilt-element');
+				if (tiltElements.length > 0) {
+					VanillaTilt.init(tiltElements, {
+						max: 15,
+						speed: 400,
+						glare: true,
+						'max-glare': 0.3,
+					});
+				}
+			}
+		</script>
+	</body>
+</html>

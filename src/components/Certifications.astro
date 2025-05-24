@@ -1,0 +1,107 @@
+---
+import { portfolioData } from "../data/portfolioData";
+const { certifications } = portfolioData;
+---
+
+<section id="certifications" class="py-20 bg-slate-50 dark:bg-slate-900">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4" data-aos="fade-up">
+        Mes <span class="text-primary-600 dark:text-primary-400">certifications</span>
+      </h2>
+      <div class="w-24 h-1 bg-secondary-500 mx-auto rounded-full"></div>
+    </div>
+    
+    <div class="swiper-container certification-slider overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper pb-12">
+        {certifications.map((certification) => (
+          <div class="swiper-slide">
+            <div class="tilt-element bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 h-full flex flex-col">
+              <div class="flex justify-between items-start mb-4">
+                <div class="certification-badge bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm font-medium inline-flex items-center">
+                  <i class="fas fa-certificate mr-1"></i>
+                  <span>Certification</span>
+                </div>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">{certification.date}</span>
+              </div>
+              
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">{certification.titre}</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-4">
+                <i class="fas fa-building mr-1"></i> {certification.organisme}
+              </p>
+              
+              <div class="mt-auto pt-4 flex justify-end">
+                {certification.lien && (
+                  <a 
+                    href={certification.lien} 
+                    target="_blank" 
+                    rel="noopener" 
+                    class="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium transition-colors duration-300"
+                  >
+                    <span>Voir le certificat</span>
+                    <i class="fas fa-external-link-alt ml-2"></i>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="swiper-pagination"></div>
+      
+      <div class="swiper-button-next custom-nav-button"></div>
+      <div class="swiper-button-prev custom-nav-button"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-nav-button {
+    color: rgb(99, 102, 241) !important;
+  }
+  
+  .certification-badge {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Swiper slider
+    new Swiper('.certification-slider', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  });
+</script>

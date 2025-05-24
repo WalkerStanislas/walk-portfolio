@@ -1,0 +1,15 @@
+<div id="scroll-progress" class="fixed top-0 left-0 right-0 h-1 bg-primary-500 z-50 transform scale-x-0 origin-left transition-transform duration-300"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollProgress = document.getElementById('scroll-progress');
+    
+    window.addEventListener('scroll', () => {
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPosition = window.scrollY;
+      const scrollPercentage = (scrollPosition / windowHeight);
+      
+      scrollProgress.style.transform = `scaleX(${scrollPercentage})`;
+    });
+  });
+</script>

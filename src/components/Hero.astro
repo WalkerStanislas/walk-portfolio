@@ -1,0 +1,178 @@
+---
+import { portfolioData } from "../data/portfolioData";
+import PP from '../assets/PP.png';
+const { informations_personnelles, liens_professionnels } = portfolioData;
+---
+
+<section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Animated background particles -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10 py-12">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-delay="200">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-slate-900 dark:text-white leading-tight">
+          <span class="block text-primary-600 dark:text-primary-400">Bonjour, je suis</span>
+          <span id="typing-text" class="font-mono text-secondary-600 dark:text-secondary-400"></span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 mb-8 max-w-lg">
+          {informations_personnelles.titre}
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <a 
+            href="#contact" 
+            class="inline-flex items-center px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50"
+          >
+            <span>Me contacter</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a 
+            href="#portfolio" 
+            class="inline-flex items-center px-6 py-3 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-opacity-50"
+          >
+            <span>Voir mon portfolio</span>
+            <i class="fas fa-laptop-code ml-2"></i>
+          </a>
+        </div>
+        
+        <div class="flex items-center mt-8 space-x-4">
+          <a 
+            href={liens_professionnels.github} 
+            target="_blank"
+            rel="noopener"
+            class="text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 transform hover:scale-110"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <a 
+            href={liens_professionnels.linkedin} 
+            target="_blank"
+            rel="noopener"
+            class="text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 transform hover:scale-110"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a 
+            href={`mailto:${informations_personnelles.email}`} 
+            class="text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 transform hover:scale-110"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="400">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl tilt-element">
+          <img 
+            src={PP.src}
+            alt="Photo de profil" 
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            width="384"
+            height="384"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-slate-400 dark:text-slate-500 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-300">
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Typed from 'typed.js';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize typed.js
+    const options = {
+      strings: ['Walker Stanislas', 'Data Scientist', 'AI Engineer'],
+      typeSpeed: 80,
+      backSpeed: 50,
+      backDelay: 1500,
+      startDelay: 500,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    };
+    
+    const typed = new Typed('#typing-text', options);
+    
+    // Load particles.js for background effect
+    loadParticles();
+  });
+  
+  function loadParticles() {
+    // Load particles.js script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+    script.onload = () => {
+      // Check if window.particlesJS exists
+      if (window.particlesJS) {
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        
+        window.particlesJS('particles-js', {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: isDarkMode ? '#4338ca' : '#6366f1' },
+            shape: {
+              type: 'circle',
+              stroke: { width: 0, color: '#000000' },
+              polygon: { nb_sides: 5 }
+            },
+            opacity: {
+              value: 0.3,
+              random: false,
+              anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: isDarkMode ? '#4338ca' : '#6366f1',
+              opacity: 0.2,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: 'none',
+              random: false,
+              straight: false,
+              out_mode: 'out',
+              bounce: false,
+              attract: { enable: false, rotateX: 600, rotateY: 1200 }
+            }
+          },
+          interactivity: {
+            detect_on: 'canvas',
+            events: {
+              onhover: { enable: true, mode: 'grab' },
+              onclick: { enable: true, mode: 'push' },
+              resize: true
+            },
+            modes: {
+              grab: { distance: 140, line_linked: { opacity: 0.5 } },
+              bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+              repulse: { distance: 200, duration: 0.4 },
+              push: { particles_nb: 4 },
+              remove: { particles_nb: 2 }
+            }
+          },
+          retina_detect: true
+        });
+      }
+    };
+    document.body.appendChild(script);
+  }
+</script>

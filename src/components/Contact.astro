@@ -1,0 +1,170 @@
+---
+import { portfolioData } from "../data/portfolioData";
+const { informations_personnelles } = portfolioData;
+---
+
+<section id="contact" class="py-20 bg-white dark:bg-slate-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4" data-aos="fade-up">
+        Me <span class="text-primary-600 dark:text-primary-400">contacter</span>
+      </h2>
+      <div class="w-24 h-1 bg-secondary-500 mx-auto rounded-full"></div>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Vous avez un projet en tête ou vous souhaitez simplement me contacter ? N'hésitez pas à m'envoyer un message !
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right" data-aos-delay="300">
+        <div class="bg-slate-50 dark:bg-slate-900 rounded-xl shadow-lg p-8">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Informations de contact</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400">
+                <i class="fas fa-envelope text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-slate-900 dark:text-white">Email</h4>
+                <a href={`mailto:${informations_personnelles.email}`} class="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
+                  {informations_personnelles.email}
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400">
+                <i class="fas fa-phone-alt text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-slate-900 dark:text-white">Téléphone</h4>
+                <a href={`tel:${informations_personnelles.telephone.replace(/\s+/g, '')}`} class="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">
+                  {informations_personnelles.telephone}
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-slate-900 dark:text-white">Localisation</h4>
+                <p class="text-slate-600 dark:text-slate-400">
+                  {informations_personnelles.adresse}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div data-aos="fade-left" data-aos-delay="400">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-slate-700 dark:text-slate-300 mb-2">Nom</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Votre nom" 
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-300"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-slate-700 dark:text-slate-300 mb-2">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Votre email" 
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-300"
+                required
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="subject" class="block text-slate-700 dark:text-slate-300 mb-2">Sujet</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              placeholder="Sujet de votre message" 
+              class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-300"
+              required
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-slate-700 dark:text-slate-300 mb-2">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              placeholder="Votre message" 
+              rows="5" 
+              class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-300"
+              required
+            ></textarea>
+          </div>
+          
+          <div>
+            <button 
+              type="submit" 
+              class="w-full px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50"
+            >
+              <span>Envoyer le message</span>
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </div>
+        </form>
+        
+        <div id="success-message" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg">
+          <p>Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    
+    contactForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Simulate form submission
+      setTimeout(() => {
+        contactForm.reset();
+        successMessage.classList.remove('hidden');
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+        }, 5000);
+      }, 1000);
+    });
+    
+    // Add animations to form inputs
+    const formInputs = document.querySelectorAll('input, textarea');
+    
+    formInputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        input.parentElement.classList.add('scale-105');
+        input.classList.add('border-primary-500');
+      });
+      
+      input.addEventListener('blur', () => {
+        input.parentElement.classList.remove('scale-105');
+        if (!input.value) {
+          input.classList.remove('border-primary-500');
+        }
+      });
+    });
+  });
+</script>

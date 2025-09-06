@@ -61,7 +61,8 @@ const { informations_personnelles } = portfolioData;
       </div>
       
       <div data-aos="fade-left" data-aos-delay="400">
-        <form id="contact-form" class="space-y-6">
+        <!-- Remplacez "YOUR_FORMSPREE_FORM_ID" par l'ID de votre formulaire Formspree -->
+        <form id="contact-form" action="https://formspree.io/f/xnnblney" method="POST" class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-slate-700 dark:text-slate-300 mb-2">Nom</label>
@@ -135,35 +136,61 @@ const { informations_personnelles } = portfolioData;
     const contactForm = document.getElementById('contact-form');
     const successMessage = document.getElementById('success-message');
     
-    contactForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
+    // Pour Formspree, on ne fait pas de e.preventDefault() car le navigateur soumettra le formulaire directement
+    // Formspree redirigera vers une page de succès ou affichera un message.
+    // Vous pouvez configurer Formspree pour rediriger vers une URL spécifique après l'envoi.
+    // Si vous voulez afficher un message de succès *sans* redirection, vous devrez utiliser une approche AJAX.
+
+    // Si vous voulez gérer le message de succès via JavaScript après une soumission réussie (par exemple, si Formspree
+    // redirige vers la même page avec un paramètre d'URL), ou si vous utilisez une approche AJAX manuelle :
+    // contactForm?.addEventListener('submit', async (e) => {
+    //   e.preventDefault(); // Gardez ceci si vous utilisez AJAX pour la soumission
       
-      // Simulate form submission
-      setTimeout(() => {
-        contactForm.reset();
-        successMessage.classList.remove('hidden');
+    //   const formData = new FormData(contactForm);
+    //   try {
+    //     const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_FORM_ID', {
+    //       method: 'POST',
+    //       body: formData,
+    //       headers: {
+    //           'Accept': 'application/json' // Important pour obtenir une réponse JSON de Formspree
+    //       }
+    //     });
         
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          successMessage.classList.add('hidden');
-        }, 5000);
-      }, 1000);
-    });
+    //     if (response.ok) {
+    //       contactForm.reset();
+    //       successMessage.classList.remove('hidden');
+    //       setTimeout(() => {
+    //         successMessage.classList.add('hidden');
+    //       }, 5000);
+    //     } else {
+    //       // Gérer les erreurs de soumission ici
+    //       console.error('Erreur lors de l\'envoi du formulaire:', response.statusText);
+    //       alert('Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.');
+    //     }
+    //   } catch (error) {
+    //     console.error('Erreur réseau:', error);
+    //     alert('Une erreur réseau est survenue. Veuillez vérifier votre connexion.');
+    //   }
+    // });
     
     // Add animations to form inputs
     const formInputs = document.querySelectorAll('input, textarea');
     
     formInputs.forEach(input => {
       input.addEventListener('focus', () => {
-        input.parentElement.classList.add('scale-105');
-        input.classList.add('border-primary-500');
+        // La ligne ci-dessous fait référence à 'parentElement.classList.add('scale-105')'
+        // qui ne semble pas avoir d'effet visuel directement sur l'input lui-même dans votre CSS
+        // je l'ai commenté pour éviter une potentielle confusion si vous ne voyez pas d'effet.
+        // Si vous avez un effet de scale sur le div parent, vous pouvez le réactiver.
+        // input.parentElement.classList.add('scale-105'); 
+        input.classList.add('ring-primary-500', 'ring-2'); // Pour l'effet de focus avec ring
+        input.classList.remove('border-slate-300', 'dark:border-slate-700');
       });
       
       input.addEventListener('blur', () => {
-        input.parentElement.classList.remove('scale-105');
-        if (!input.value) {
-          input.classList.remove('border-primary-500');
-        }
+        // input.parentElement.classList.remove('scale-105');
+        input.classList.remove('ring-primary-500', 'ring-2');
+        input.classList.add('border-slate-300', 'dark:border-slate-700'); // Retour à la bordure normale
       });
     });
   });

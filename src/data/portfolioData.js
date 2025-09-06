@@ -15,7 +15,7 @@ export const portfolioData = {
   "competences_techniques": [
     {
       "categorie": "Langages de programmation",
-      "technologies": ["Python", "Java", "Scala", "R", "SQL", "PL/SQL"]
+      "technologies": ["Python", "Java", "Scala", "R", "SQL", "PL/SQL", "HTML/CSS", "PHP"]
     },
     {
       "categorie": "IA & Data Science",
@@ -23,15 +23,15 @@ export const portfolioData = {
     },
     {
       "categorie": "Bibliothèques & Frameworks",
-      "technologies": ["Pandas", "NumPy", "TensorFlow", "Scikit-learn", "Spacy", "NLTK", "LangChain", "HuggingFace"]
+      "technologies": ["Pandas", "NumPy", "TensorFlow", "Scikit-learn", "Spacy", "NLTK", "LangChain", "HuggingFace", "Scrapy", "Selenium", "Streamlit"]
     },
     {
       "categorie": "Base de données",
-      "technologies": ["PostgreSQL", "MySQL"]
+      "technologies": ["PostgreSQL", "MySQL", "Firebase"]
     },
     {
       "categorie": "Outils & plateformes",
-      "technologies": ["Git/GitHub", "Kaggle", "Docker", "Streamlit", "Power BI", "Hadoop"]
+      "technologies": ["Git/GitHub", "Kaggle", "Docker", "Streamlit", "Power BI", "Hadoop", "Google Colab"]
     }
   ],
   "formation": [
@@ -48,17 +48,30 @@ export const portfolioData = {
   ],
   "experiences_professionnelles": [
     {
-      "poste": "Développeur mobile",
-      "entreprise": "AJPD-BF",
-      "periode": "03/2025 – Aujourd'hui",
-      "description": "Développement d'applications mobiles répondant à des enjeux sociaux."
+      "poste": "Stagiaire Ouvrier",
+      "entreprise": "NeXT's",
+      "periode": "09/2023 – 10/2023",
+      "description": "Optimisation des tâches dans GLPI, contributions aux modules Odoo."
     },
+    
     {
       "poste": "Stagiaire Technicien en Intelligence Artificielle",
       "entreprise": "CITADEL",
       "periode": "09/2024 – 11/2024",
       "description": "Participation à des projets IA en lien avec la santé et le traitement automatique du langage."
-    }
+    },
+    {
+      "poste": "Stagiaire AI for Language",
+      "entreprise": "CITADEL",
+      "periode": "05/2025 – En cours",
+      "description": "Développement et optimisation de modèles d'IA pour le traitement du langage."
+    },{
+      "poste": "Développeur mobile",
+      "entreprise": "AJPD-BF",
+      "periode": "03/2025 – Aujourd'hui",
+      "description": "Développement d'applications mobiles répondant à des enjeux sociaux."
+    },
+    
   ],
   "projets": [
     {
@@ -171,6 +184,8 @@ export const techIcons = {
   "R": { icon: "devicon-r-plain", color: "#276DC3" },
   "SQL": { icon: "devicon-mysql-plain", color: "#4479A1" },
   "PL/SQL": { icon: "devicon-oracle-plain", color: "#F80000" },
+  "HTML/CSS": { icon: "devicon-html5-plain", color: "#E34F26" },
+  "PHP": { icon: "devicon-php-plain", color: "#777BB4" },
   
   // AI & Data Science
   "Machine Learning": { icon: "fas fa-brain", color: "#FF6B6B" },
@@ -189,19 +204,24 @@ export const techIcons = {
   "NLTK": { icon: "fas fa-comment-alt", color: "#3E863D" },
   "LangChain": { icon: "fas fa-link", color: "#2D46C1" },
   "HuggingFace": { icon: "fas fa-smile", color: "#FFBD59" },
+  "Scrapy": { icon: "devicon-scrapy-plain", color: "#69B600" },
+  "Selenium": { icon: "devicon-selenium-plain", color: "#43B02A" },
+  "Streamlit": { icon: "fas fa-stream", color: "#FF4B4B" }, // Déjà présent, mais je le laisse pour la clarté
   
   // Databases
   "PostgreSQL": { icon: "devicon-postgresql-plain", color: "#336791" },
   "MySQL": { icon: "devicon-mysql-plain", color: "#4479A1" },
+  "Firebase": { icon: "devicon-firebase-plain", color: "#FFCA28" },
   
   // Tools & Platforms
   "Git/GitHub": { icon: "devicon-github-plain", color: "#181717" },
   "Kaggle": { icon: "devicon-kaggle-plain", color: "#20BEFF" },
   "Docker": { icon: "devicon-docker-plain", color: "#2496ED" },
-  "Streamlit": { icon: "fas fa-stream", color: "#FF4B4B" },
+  "Streamlit": { icon: "fas fa-stream", color: "#FF4B4B" }, // Déjà présent, mais je le laisse pour la clarté
   "Power BI": { icon: "fas fa-chart-bar", color: "#F2C811" },
   "Hadoop": { icon: "devicon-apache-plain", color: "#D22128" },
-  
+  "Google Colab": { icon: "fas fa-flask", color: "#F9AB00" },
+
   // Project technologies
   "VADER": { icon: "fas fa-star-half-alt", color: "#6B7280" },
   "TF-IDF": { icon: "fas fa-calculator", color: "#6366F1" },

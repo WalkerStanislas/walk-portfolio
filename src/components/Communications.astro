@@ -1,0 +1,78 @@
+---
+import { portfolioData } from "../data/portfolioData";
+const { communications } = portfolioData;
+
+// Import all project images
+import communication_IndabaX25 from "../assets/communications/WalkerCommunication.jpg";
+//import translator from "../assets/projects/translator.jpg";
+//import chatbot from "../assets/projects/chatbot.png";
+//import pharmacy from "../assets/projects/pharmacy.jpg";
+
+// Map project titles to their images
+const comImages = {
+  "Traduction Automatique Français ↔ Mooré basée sur les LLMs": communication_IndabaX25,
+  //"French2English Traductor": translator,
+  //#"Chatbot de prédiction épidémiologique": chatbot,
+  //#"Application mobile santé/pharmacies de garde": pharmacy
+};
+---
+
+<section id="portfolio" class="py-20 bg-white dark:bg-slate-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4" data-aos="fade-up">
+        Mes <span class="text-primary-600 dark:text-primary-400">communications</span>
+      </h2>
+      <div class="w-24 h-1 bg-secondary-500 mx-auto rounded-full"></div>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Découvrez une sélection de mes communications réalisés dans le domaine de l'IA et du traitement de données.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {communications.map((communications, index) => (
+        <div class="group relative h-[400px] overflow-hidden rounded-xl shadow-lg transition-all duration-500" data-aos="fade-up" data-aos-delay={200 + index * 100}>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90"></div>
+          
+          <img 
+            src={comImages[communications.titre].src}
+            alt={`Image de la communications ${communications.titre}`} 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500">
+            <h3 class="text-2xl font-bold text-white mb-2">{communications.titre}</h3>
+            <p class="text-slate-200 mb-4">{communications.description}</p>
+            
+            {communications.technologies && (
+              <div class="flex flex-wrap gap-2 mb-4">
+                {communications.technologies.map((tech) => (
+                  <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm backdrop-blur-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+            
+            <div class="flex justify-between items-center">
+              <span class="text-primary-400 text-sm">{communications.type} • {communications.periode}</span>
+              
+              <div class="flex space-x-4">
+                {communications.liens?.demo && (
+                  <a 
+                    href={communications.liens.demo} 
+                    target="_blank" 
+                    rel="noopener" 
+                    class="text-white hover:text-primary-900 duration-300"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

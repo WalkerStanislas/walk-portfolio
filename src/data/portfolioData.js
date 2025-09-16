@@ -172,7 +172,22 @@ export const portfolioData = {
     "github": "https://github.com/WalkerStanislas",
     "linkedin": "https://www.linkedin.com/in/walkerstanislasrocksanecompaore",
     "portfolio": "https://walkerstanislas.github.io/My-portfolio/"
-  }
+  },
+  "communications":[
+    {
+      "titre": "Traduction Automatique Français ↔ Mooré basée sur les LLMs",
+      "type": "Communication à IndabaX Burkina Faso",
+      "periode": "Août 2025",
+      "description": "Il s'agissait pour moi d'exposer aux participants, les différents défis de traduction automatique pour les langues africaines: cas du Mooré",
+      "technologies": ["Scraping", "Data mining", "LLM", "Fast API"],
+      "liens": {
+        "demo": "https://www.youtube.com/watch?v=uUU26HBVDxA"
+      }
+    },
+    
+
+
+  ]
 };
 
 // Tech icons mapping

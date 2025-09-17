@@ -133,6 +133,12 @@ export const portfolioData = {
       "organisme": "École Polytechnique de Ouagadougou",
       "date": "2024",
       "lien": "https://www.facebook.com/share/p/161FY18Hay/"
+    },
+      {
+      "titre": "Attestation de reconnaissance",
+      "organisme": "IndabaX Burkina",
+      "date": "Août 2025",
+      "lien": "https://drive.google.com/file/d/1GgrNVmPFHummmcNfwpASkJ4yuwexpWcL/view?usp=drive_link"
     }
   ],
   "langues": [

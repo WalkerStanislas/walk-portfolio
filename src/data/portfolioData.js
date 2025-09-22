@@ -76,13 +76,23 @@ export const portfolioData = {
   "projets": [
     {
       "titre": "Analysis of News Trends",
-      "type": "Projet personnel",
+      "type": "Projet de stage Bac+4",
       "periode": "2024",
       "description": "Analyse des tendances de l'actualité à partir de données extraites par web scraping.",
       "technologies": ["Spacy", "NLTK", "VADER", "TF-IDF"],
       "liens": {
         "github": "https://github.com/WalkerStanislas/Analysis-of-new-trends-in-BF",
         "demo": "https://analysis-of-new-trends-in-bf-foxjnxwtqkbxhpqypwgwwv.streamlit.app/"
+      }
+    },
+    {
+      "titre": "Plateforme de classification de plantes",
+      "type": "Projet de classe",
+      "periode": "2024",
+      "description": "Développement d'un modèle de Deep Learning permettant de classifier des plantes.",
+      "technologies": ["Scikit-learn", "Matplotlib", "Seaborn", "Tensorflow"],
+      "liens": {
+        "github": "https://www.kaggle.com/code/walkerstan/deep-learning",
       }
     },
     {
@@ -107,7 +117,18 @@ export const portfolioData = {
       "type": "Projet personnel",
       "periode": "2024",
       "description": "Application de géolocalisation des pharmacies de garde avec options de commande."
-    }
+    },
+    {
+      "titre": "Application de gestion des tâches collaboratives",
+      "type": "Projet freelance (worked with SAWADOGO Souleymane)",
+      "periode": "2022",
+      "description": "Développement d'une application CLI de gestion des tâches collaboratives au sein d'une entreprise",
+      "technologies": ["Python", "Sqlite", "CLI dev", "Intégration continue"],
+      "liens": {
+        "github": "https://github.com/WalkerStanislas/Gestion-de-taches-collaboratives",
+        "demo": "https://www.youtube.com/watch?v=YknXutXMa40",
+      }
+    },
   ],
   "certifications": [
     {

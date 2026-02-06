@@ -29,40 +29,40 @@ const comImages = {
       </p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {communications.map((communications, index) => (
-        <div class="group relative h-[400px] overflow-hidden rounded-xl shadow-lg transition-all duration-500" data-aos="fade-up" data-aos-delay={200 + index * 100}>
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90"></div>
-          
-          <img 
-            src={comImages[communications.titre].src}
-            alt={`Image de la communications ${communications.titre}`} 
+    <div class="flex justify-center">
+      {communications.map((comm, index) => (
+        <div class="group relative h-[450px] w-full max-w-5xl overflow-hidden rounded-xl shadow-lg transition-all duration-500" data-aos="fade-up" data-aos-delay={200 + index * 100}>
+          <div class="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-slate-900/50 to-slate-900/95 z-10"></div>
+
+          <img
+            src={comImages[comm.titre].src}
+            alt={`Image de la communication ${comm.titre}`}
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          
-          <div class="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500">
-            <h3 class="text-2xl font-bold text-white mb-2">{communications.titre}</h3>
-            <p class="text-slate-200 mb-4">{communications.description}</p>
-            
-            {communications.technologies && (
+
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 z-20 backdrop-blur-[2px]">
+            <h3 class="text-2xl font-bold text-white mb-2 drop-shadow-lg">{comm.titre}</h3>
+            <p class="text-slate-200 mb-4 drop-shadow-md">{comm.description}</p>
+
+            {comm.technologies && (
               <div class="flex flex-wrap gap-2 mb-4">
-                {communications.technologies.map((tech) => (
+                {comm.technologies.map((tech) => (
                   <span class="px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm backdrop-blur-sm">
                     {tech}
                   </span>
                 ))}
               </div>
             )}
-            
+
             <div class="flex justify-between items-center">
-              <span class="text-primary-400 text-sm">{communications.type} • {communications.periode}</span>
-              
+              <span class="text-primary-400 text-sm">{comm.type} • {comm.periode}</span>
+
               <div class="flex space-x-4">
-                {communications.liens?.demo && (
-                  <a 
-                    href={communications.liens.demo} 
-                    target="_blank" 
-                    rel="noopener" 
+                {comm.liens?.demo && (
+                  <a
+                    href={comm.liens.demo}
+                    target="_blank"
+                    rel="noopener"
                     class="text-white hover:text-primary-900 duration-300"
                   >
                     <i class="fas fa-external-link-alt text-xl"></i>

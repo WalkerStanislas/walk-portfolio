@@ -2,14 +2,14 @@
 export const portfolioData = {
   "informations_personnelles": {
     "nom": "COMPAORE Walker Stanislas Rocksane",
-    "titre": "Élève-Ingénieur en Intelligence Artificielle & Science des Données",
+    "titre": "Ingénieur IA & Science des Données",
     "email": "walk.compaore@gmail.com",
     "telephone": "+226 73 25 63 01",
     "adresse": "Ouagadougou, Burkina Faso",
     "photo": "home.png"
   },
   "resume_professionnel": {
-    "description": "Élève-ingénieur à l'École Polytechnique de Ouagadougou, passionné par le NLP, l'IA générative, l'analyse de données et le Big Data. Je transforme mes compétences en solutions concrètes à impact réel.",
+    "description": "Ingénieur IA et Sciences de Données de l'École Polytechnique de Ouagadougou, passionné par le NLP, l'IA générative, l'analyse de données et le Big Data. Je transforme mes compétences en solutions concrètes à impact réel.",
     "objectif": "Contribuer à des projets innovants en IA/NLP/Big Data dans un environnement stimulant."
   },
   "competences_techniques": [
@@ -38,7 +38,7 @@ export const portfolioData = {
     {
       "diplome": "Cycle Ingénieur en Intelligence Artificielle et Science des Données",
       "etablissement": "École Polytechnique de Ouagadougou",
-      "periode": "10/2022 – En cours"
+      "periode": "10/2022 – 12/2025"
     },
     {
       "diplome": "Classe préparatoire PCSI-PTSI",
@@ -60,15 +60,9 @@ export const portfolioData = {
       "description": "Participation à des projets IA en lien avec la santé et le traitement automatique du langage."
     },
     {
-      "poste": "Ingénieur Consultant Développeur",
-      "entreprise": "ANAM",
-      "periode": "11/2025 – 01/2026",
-      "description": "Mission de consulting en développement (3 mois)."
-    },
-    {
       "poste": "Stagiaire AI for Language",
       "entreprise": "CITADEL",
-      "periode": "05/2025 – En cours",
+      "periode": "05/2025 – 11/2025",
       "description": "Développement et optimisation de modèles d'IA pour le traitement du langage."
     },
     {
@@ -76,6 +70,12 @@ export const portfolioData = {
       "entreprise": "AJPD-BF",
       "periode": "03/2025 – Aujourd'hui",
       "description": "Développement d'applications mobiles répondant à des enjeux sociaux."
+    },
+    {
+      "poste": "Ingénieur Consultant Développeur",
+      "entreprise": "ANAM",
+      "periode": "11/2025 – 01/2026",
+      "description": "Mission de consulting en développement (3 mois)."
     }
   ],
   "projets": [

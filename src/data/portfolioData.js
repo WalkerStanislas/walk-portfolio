@@ -53,7 +53,6 @@ export const portfolioData = {
       "periode": "09/2023 – 10/2023",
       "description": "Optimisation des tâches dans GLPI, contributions aux modules Odoo."
     },
-    
     {
       "poste": "Stagiaire Technicien en Intelligence Artificielle",
       "entreprise": "CITADEL",
@@ -61,17 +60,23 @@ export const portfolioData = {
       "description": "Participation à des projets IA en lien avec la santé et le traitement automatique du langage."
     },
     {
+      "poste": "Ingénieur Consultant Développeur",
+      "entreprise": "ANAM",
+      "periode": "11/2025 – 01/2026",
+      "description": "Mission de consulting en développement (3 mois)."
+    },
+    {
       "poste": "Stagiaire AI for Language",
       "entreprise": "CITADEL",
       "periode": "05/2025 – En cours",
       "description": "Développement et optimisation de modèles d'IA pour le traitement du langage."
-    },{
+    },
+    {
       "poste": "Développeur mobile",
       "entreprise": "AJPD-BF",
       "periode": "03/2025 – Aujourd'hui",
       "description": "Développement d'applications mobiles répondant à des enjeux sociaux."
-    },
-    
+    }
   ],
   "projets": [
     {
@@ -129,6 +134,24 @@ export const portfolioData = {
         "demo": "https://www.youtube.com/watch?v=YknXutXMa40",
       }
     },
+    {
+      "titre": "Beogo AI - Traduction vocale Français-Mooré",
+      "type": "Projet Start-up - Semaine du Numérique 2025",
+      "periode": "2025",
+      "description": "Plateforme de traduction vocale complète français-mooré : traduction texte bidirectionnelle, transcription et synthèse vocale. Valorisation des langues locales par l'IA.",
+      "technologies": ["LLMs", "NLP", "Fast API", "Streamlit", "HuggingFace"],
+      "role": "Co-développeur"
+    },
+    {
+      "titre": "Assistant RAG - Guide Touristique BF",
+      "type": "Projet Sprint - Semaine du Numérique 2025",
+      "periode": "2025",
+      "description": "Assistant intelligent basé sur le RAG pour le guidage touristique au Burkina Faso.",
+      "technologies": ["LangChain", "RAG", "Streamlit", "Python"],
+      "liens": {
+        "demo": "https://tourism-rag-bvcud3pzrutjb6xbn5be54.streamlit.app/"
+      }
+    }
   ],
   "certifications": [
     {
@@ -155,11 +178,17 @@ export const portfolioData = {
       "date": "2024",
       "lien": "https://www.facebook.com/share/p/161FY18Hay/"
     },
-      {
+    {
       "titre": "Attestation de reconnaissance",
       "organisme": "IndabaX Burkina",
       "date": "Août 2025",
       "lien": "https://drive.google.com/file/d/1GgrNVmPFHummmcNfwpASkJ4yuwexpWcL/view?usp=drive_link"
+    },
+    {
+      "titre": "Attestation de participation - Hackathon des Nations Unies",
+      "organisme": "Nations Unies",
+      "date": "2025",
+      "lien": "/walk-portfolio/documents/participation_hackathon_onu.pdf"
     }
   ],
   "langues": [
@@ -188,10 +217,40 @@ export const portfolioData = {
     "Défis de programmation",
     "Santé digitale"
   ],
+  "distinctions": [
+    {
+      "titre": "Prix Spécial de Son Excellence M. le Premier Ministre",
+      "evenement": "AI Start-up Day - Semaine du Numérique 2025",
+      "description": "Projet Beogo AI : Valorisation des langues locales par l'IA, cas du mooré. Plateforme de traduction vocale complète français-mooré incluant traduction texte bidirectionnelle, transcription et synthèse vocale.",
+      "type": "premier",
+      "role": "Co-développeur & Porteur du projet"
+    },
+    {
+      "titre": "Lauréat - Meilleures AI Start-up SN25",
+      "evenement": "AI Start-up Day - Semaine du Numérique 2025",
+      "description": "Catégorie AI Start-up Day : Beogo AI sélectionné parmi les meilleures AI Start-up de la SN25.",
+      "type": "or"
+    },
+    {
+      "titre": "Vainqueur - Concours de conception du site web de l'EPO",
+      "evenement": "École Polytechnique de Ouagadougou",
+      "description": "Conception et développement du site web officiel de l'École Polytechnique de Ouagadougou.",
+      "type": "or",
+      "role": "Co-développeur",
+      "lien": "https://epo.bf"
+    },
+    {
+      "titre": "2e Prix - Hackathon des Universités",
+      "evenement": "Catégorie AI for Média Monitoring",
+      "description": "Développement d'une solution d'IA pour le monitoring et l'analyse des médias.",
+      "type": "argent"
+    }
+  ],
   "sections_portfolio": [
     "Home",
     "About",
     "Portfolio",
+    "Distinctions",
     "Projects and Services",
     "Contact"
   ],
@@ -268,5 +327,10 @@ export const techIcons = {
   "VADER": { icon: "fas fa-star-half-alt", color: "#6B7280" },
   "TF-IDF": { icon: "fas fa-calculator", color: "#6366F1" },
   "PyTorch": { icon: "devicon-pytorch-plain", color: "#EE4C2C" },
-  "OpenNMT": { icon: "fas fa-language", color: "#3B82F6" }
+  "OpenNMT": { icon: "fas fa-language", color: "#3B82F6" },
+  "RAG": { icon: "fas fa-search-plus", color: "#8B5CF6" },
+  "Fast API": { icon: "fas fa-bolt", color: "#009688" },
+  "Sqlite": { icon: "devicon-sqlite-plain", color: "#003B57" },
+  "CLI dev": { icon: "fas fa-terminal", color: "#4B5563" },
+  "Intégration continue": { icon: "fas fa-sync-alt", color: "#2563EB" }
 };

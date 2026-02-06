@@ -1,0 +1,122 @@
+---
+import { portfolioData } from "../data/portfolioData";
+const { distinctions } = portfolioData;
+
+import sn25Image from "../assets/awards/sn25-presentation.jpg";
+
+const typeConfig = {
+  premier: {
+    borderColor: "border-amber-400",
+    bgBadge: "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300",
+    dotColor: "bg-amber-400",
+    label: "Prix Spécial",
+    icon: "fas fa-trophy"
+  },
+  or: {
+    borderColor: "border-amber-400",
+    bgBadge: "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300",
+    dotColor: "bg-amber-400",
+    label: "Lauréat",
+    icon: "fas fa-medal"
+  },
+  argent: {
+    borderColor: "border-slate-400",
+    bgBadge: "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300",
+    dotColor: "bg-slate-400",
+    label: "2e Prix",
+    icon: "fas fa-medal"
+  }
+};
+---
+
+<section id="distinctions" class="py-20 bg-white dark:bg-slate-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4" data-aos="fade-up">
+        Mes <span class="text-primary-600 dark:text-primary-400">prix & distinctions</span>
+      </h2>
+      <div class="w-24 h-1 bg-secondary-500 mx-auto rounded-full"></div>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Reconnaissances obtenues lors de compétitions et événements dans le domaine de l'IA et du numérique.
+      </p>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="relative rounded-2xl overflow-hidden mb-16 max-w-4xl mx-auto shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+      <img
+        src={sn25Image.src}
+        alt="Présentation à la Semaine du Numérique 2025"
+        class="w-full h-64 sm:h-80 md:h-96 object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6">
+        <p class="text-white text-lg font-semibold">AI Start-up Day - Semaine du Numérique 2025</p>
+        <p class="text-slate-200 text-sm">Présentation du projet Beogo AI</p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative max-w-3xl mx-auto">
+      <!-- Vertical line -->
+      <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-400 via-amber-300 to-slate-300 dark:from-amber-500 dark:via-amber-600 dark:to-slate-600"></div>
+
+      <div class="space-y-10">
+        {distinctions.map((distinction, index) => {
+          const config = typeConfig[distinction.type] || typeConfig.or;
+          const isPremier = distinction.type === "premier";
+          return (
+            <div class="relative pl-12 sm:pl-20" data-aos="fade-up" data-aos-delay={200 + index * 150}>
+              <!-- Dot -->
+              <div class={`absolute left-2.5 sm:left-6.5 top-6 w-3 h-3 rounded-full ${config.dotColor} ring-4 ring-white dark:ring-slate-800 z-10`}></div>
+
+              <!-- Card -->
+              <div class={`bg-white dark:bg-slate-700/50 rounded-xl shadow-lg p-6 border-l-4 ${config.borderColor} transition-all duration-300 hover:shadow-xl ${isPremier ? 'ring-1 ring-amber-200 dark:ring-amber-700' : ''}`}>
+                <div class="flex flex-wrap items-center gap-3 mb-3">
+                  <span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${config.bgBadge}`}>
+                    <i class={config.icon}></i>
+                    {config.label}
+                  </span>
+                  {isPremier && (
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 ring-1 ring-amber-200 dark:ring-amber-700">
+                      <i class="fas fa-star text-[10px]"></i>
+                      Premium
+                    </span>
+                  )}
+                </div>
+
+                <h3 class={`text-lg sm:text-xl font-bold mb-1 ${isPremier ? 'text-amber-700 dark:text-amber-300' : 'text-slate-900 dark:text-white'}`}>
+                  {distinction.titre}
+                </h3>
+                <p class="text-primary-600 dark:text-primary-400 text-sm font-medium mb-3">
+                  <i class="fas fa-calendar-alt mr-1"></i> {distinction.evenement}
+                </p>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+                  {distinction.description}
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 text-sm">
+                  {distinction.role && (
+                    <span class="text-slate-500 dark:text-slate-400">
+                      <i class="fas fa-user mr-1"></i> {distinction.role}
+                    </span>
+                  )}
+                  {distinction.lien && (
+                    <a
+                      href={distinction.lien}
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium transition-colors duration-300"
+                    >
+                      <span>Voir</span>
+                      <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
